@@ -16,7 +16,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'build',
+    outDir: 'dist',
     assetsDir: 'assets',
     rollupOptions: {
       output: {
@@ -26,7 +26,7 @@ export default defineConfig({
       },
     },
   },
-  base: '/sitoPolle/',
+  base: '/Le_Polle/',
   server: {
     port: 3000,
     historyApiFallback: true,

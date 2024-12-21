@@ -38,7 +38,7 @@ jobs:
       - name: Upload build folder
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build'  # Utilizza la cartella di output di Vite (solitamente 'dist', ma hai impostato 'build')
+          path: './dist'  # Assicurati che 'dist' sia la cartella giusta per l'output di Vite, o usa 'build' se l'hai configurato diversamente
 
       - name: Deploy to GitHub Pages
         id: deployment
