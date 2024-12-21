@@ -105,7 +105,7 @@ const DescriptionHome = () => {
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
-      return '<span class="' + className + ' responsive-pagination-swiper"></span>';
+      return '<span className="' + className + ' responsive-pagination-swiper"></span>';
     },
   };
   
@@ -205,7 +205,7 @@ const DescriptionHome = () => {
             style={{ opacity: 0 }}
           >
             <div className="custom-arrow custom-arrow-left">
-              <i class="fa-solid fa-chevron-left"></i>
+              <i className="fa-solid fa-chevron-left"></i>
             </div>
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
@@ -237,7 +237,7 @@ const DescriptionHome = () => {
               ))}
             </Swiper>
             <div className="custom-arrow custom-arrow-right">
-              <i class="fa-solid fa-chevron-right"></i>
+              <i className="fa-solid fa-chevron-right"></i>
             </div>
           </div>
         </div>
@@ -257,7 +257,7 @@ const DescriptionHome = () => {
             style={{ opacity: 0 }}
           >
             <div className="custom-arrow custom-arrow-left">
-              <i class="fa-solid fa-chevron-left"></i>
+              <i className="fa-solid fa-chevron-left"></i>
             </div>
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
@@ -290,7 +290,7 @@ const DescriptionHome = () => {
               ))}
             </Swiper>
             <div className="custom-arrow custom-arrow-right">
-              <i class="fa-solid fa-chevron-right"></i>
+              <i className="fa-solid fa-chevron-right"></i>
             </div>
           </div>
         </div>
