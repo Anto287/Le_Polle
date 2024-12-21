@@ -1,42 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-
-import HomePage from '@pages/HomePage';
-import AboutPage from '@pages/AboutPage';
+import { AnimatePresence } from 'framer-motion';
+import PageWrapper from '@components/PageWrapper';
 import Layout from '@components/Layout';
+
+import Home from '@pages/Home';
+import About from '@pages/About';
 import NoPage from '@pages/NoPage';
 
 const App = () => {
-  // Stato per animazioni di caricamento della pagina
-  const [startAnimation, setStartAnimation] = useState(false);
-
-  // Gestione del percorso attuale
   const location = useLocation();
+  const [animationEnd, setAnimationEnd] = useState(false);
 
-  // Funzione per avviare l'animazione della pagina
-  const pageStart = () => {
-    setStartAnimation(true);
+  const handleAnimationComplete = () => {
+    setAnimationEnd(true);
   };
 
-  // Effetto per resettare l'animazione al cambio di percorso
-  useEffect(() => {
-    setStartAnimation(false);
-  }, [location.pathname]);
-
   return (
-    <Routes>
-      {/* Layout principale con Topbar */}
-      <Route path="/" element={<Layout showTopbar={true} startPage={startAnimation} />}>
-        <Route index element={<HomePage pageArleadyStart={pageStart} />} />
-        <Route path="home" element={<HomePage pageArleadyStart={pageStart} />} />
-        <Route path="about" element={<AboutPage />} />
-      </Route>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Layout animationEnd={animationEnd}/>}>
+          <Route
+            path="home"
+            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home/></PageWrapper>}
+          />
+          <Route
+            path="about"
+            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><About/></PageWrapper>}
+          />
+        </Route>
 
-      {/* Layout per pagine non trovate */}
-      <Route path="*" element={<Layout showTopbar={false} startPage="error" />}>
-        <Route path="*" element={<NoPage />} />
-      </Route>
-    </Routes>
+        <Route path="*" element={<Layout/>}>
+          <Route path="*" element={<NoPage/>} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
   );
 };
 

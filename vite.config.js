@@ -12,7 +12,7 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, 'src/assets'),
       '@images': path.resolve(__dirname, 'src/assets/images'),
       '@translation': path.resolve(__dirname, 'public/locales'),
-      '@hook': path.resolve(__dirname, 'src/hook'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
     },
   },
   build: {
