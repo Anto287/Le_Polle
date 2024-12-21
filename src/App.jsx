@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
-function App() {
-  const [count, setCount] = useState(0)
+import HomePage from '@pages/HomePage';
+import AboutPage from '@pages/AboutPage';
+import Layout from '@components/Layout';
+import NoPage from '@pages/NoPage';
+
+const App = () => {
+  // Stato per animazioni di caricamento della pagina
+  const [startAnimation, setStartAnimation] = useState(false);
+
+  // Gestione del percorso attuale
+  const location = useLocation();
+
+  // Funzione per avviare l'animazione della pagina
+  const pageStart = () => {
+    setStartAnimation(true);
+  };
+
+  // Effetto per resettare l'animazione al cambio di percorso
+  useEffect(() => {
+    setStartAnimation(false);
+  }, [location.pathname]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Routes>
+      {/* Layout principale con Topbar */}
+      <Route path="/" element={<Layout showTopbar={true} startPage={startAnimation} />}>
+        <Route index element={<HomePage pageArleadyStart={pageStart} />} />
+        <Route path="home" element={<HomePage pageArleadyStart={pageStart} />} />
+        <Route path="about" element={<AboutPage />} />
+      </Route>
 
-export default App
+      {/* Layout per pagine non trovate */}
+      <Route path="*" element={<Layout showTopbar={false} startPage="error" />}>
+        <Route path="*" element={<NoPage />} />
+      </Route>
+    </Routes>
+  );
+};
+
+export default App;

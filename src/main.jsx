@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
+import { MyDataProvider } from '@components/ScrollData';
 import myIcon from '@images/img_topbar/icon.webp';
+import '@styles/App.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import './i18n';
 
 const App = React.lazy(() => import('./App'));
 
@@ -9,7 +13,9 @@ function Index() {
   return (
     <React.StrictMode>
       <HashRouter>
-        <App />
+        <MyDataProvider>
+          <App />
+        </MyDataProvider>
       </HashRouter>
     </React.StrictMode>
   );
