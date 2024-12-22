@@ -23,7 +23,7 @@ const PageWrapper = ({ children, onAnimationComplete  }) => {
           : 'circle(0% at 50% 50%)',
       }}
       transition={{
-        duration: 1.2,
+        duration: 2,
         ease: 'easeInOut',
       }}
       style={{

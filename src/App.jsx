@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import React, { Suspense, useState, lazy, useEffect } from 'react';
+import { Routes, Route, useLocation, Outlet } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import PageWrapper from '@components/PageWrapper';
-import Layout from '@components/Layout';
+import Topbar from '@components/Topbar';
 
-import Home from '@pages/Home';
-import About from '@pages/About';
-import NoPage from '@pages/NoPage';
+const Home = lazy(() => import("@pages/Home"));
+const About = lazy(() => import("@pages/About"));
+const NoPage = lazy(() => import('@pages/NoPage'));
 
 const App = () => {
   const location = useLocation();
@@ -20,6 +20,10 @@ const App = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Layout animationEnd={animationEnd}/>}>
+          <Route 
+            index 
+            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home/></PageWrapper>} 
+          />
           <Route
             path="home"
             element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home/></PageWrapper>}
@@ -39,3 +43,24 @@ const App = () => {
 };
 
 export default App;
+
+const Layout = ({animationEnd}) => {
+    const [showTopbar, setShowTopbar] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [showTopBarScrolling, setShowTopBarScrolling] = useState(true);
+
+    useEffect(() => {
+        setShowTopbar(animationEnd);
+    }, [animationEnd]);
+
+    const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  return (
+    <>
+        {showTopbar && !isMenuOpen && (<Topbar showTopBarScrolling={showTopBarScrolling} toggleMenu={toggleMenu} />)}
+        <Suspense fallback={<div style={{color: 'red'}}>Pippo...</div>}>
+          <Outlet />
+        </Suspense>
+    </>
+  );
+};
