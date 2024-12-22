@@ -51,7 +51,6 @@ const ParalaxHome = memo(() => {
   const [loadedImages, setLoadedImages] = useState(0);
   const [errorPageLoaded, setErrorPageLoaded] = useState(false);
   const [gyroData, setGyroData] = useState({ alpha: 0, beta: 0 });
-  const loadedFlags = useRef({});
   const titlesRef = useRef(null);
 
   const imageSources = [
@@ -159,18 +158,11 @@ const ParalaxHome = memo(() => {
   const currentX = useRef(0);
   const currentY = useRef(0);
 
-  const handleImageLoad = (src) => {
-    if (!loadedFlags.current[src]) {
-      setLoadedImages((prevLoadedImages) => prevLoadedImages + 1);
-      loadedFlags.current[src] = true;
-    }
-  };
-
   const handleImageError = () => setErrorPageLoaded(true);
 
   const renderParallaxLayer = (src, className, style, lerpEase, strength) => (
     <MouseParallax
-      key={src}
+      key={src.desktop}
       enableOnTouchDevice
       shouldResetPosition
       shouldPause
@@ -186,7 +178,7 @@ const ParalaxHome = memo(() => {
           <source srcSet={src.large} media="(min-width: 2000px)" />
           <img 
             src={src.desktop}
-            onLoad={() => handleImageLoad(src)}
+            onLoad={() => setLoadedImages((prevLoadedImages) => prevLoadedImages + 1)}
             onError={handleImageError}
             className={`${className}`}
             alt=""
@@ -206,7 +198,7 @@ const ParalaxHome = memo(() => {
       {renderParallaxLayer(imageSources[4], `fog-1-${deviceClass}`, getGyroStyle(0.7, 0.55), 0.05, 0.15)}
       {renderParallaxLayer(imageSources[6], `sun-rays-${deviceClass}`, {}, 0.02, 0.02)}
       <MouseParallax enableOnTouchDevice shouldResetPosition shouldPause isAbsolutelyPositioned lerpEase={0.1} strength={0.1}>
-        <div className={titlesClass} ref={titlesRef}>
+        <div className={titlesClass} ref={titlesRef} style={{ opacity: 0 }}>
           <p className='first-title' translate="no">{t('WELCOME')}</p>
           <p className='second-title' translate="no">{t('TO_THE')}</p>
           <b translate="no">{t('POLLE')}</b>

@@ -22,11 +22,11 @@ const App = () => {
         <Route path="/" element={<Layout animationEnd={animationEnd}/>}>
           <Route 
             index 
-            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home/></PageWrapper>} 
+            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home animationEnd={animationEnd}/></PageWrapper>} 
           />
           <Route
             path="home"
-            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home/></PageWrapper>}
+            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home animationEnd={animationEnd}/></PageWrapper>}
           />
           <Route
             path="about"
@@ -45,22 +45,21 @@ const App = () => {
 export default App;
 
 const Layout = ({animationEnd}) => {
-    const [showTopbar, setShowTopbar] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [showTopBarScrolling, setShowTopBarScrolling] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showTopBarScrolling, setShowTopBarScrolling] = useState(false);
 
-    useEffect(() => {
-        setShowTopbar(animationEnd);
-    }, [animationEnd]);
+  useEffect(() => {
+    setShowTopBarScrolling(animationEnd);
+  }, [animationEnd]);
 
-    const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
     <>
-        {showTopbar && !isMenuOpen && (<Topbar showTopBarScrolling={showTopBarScrolling} toggleMenu={toggleMenu} />)}
-        <Suspense fallback={<div style={{color: 'red'}}>Pippo...</div>}>
-          <Outlet />
-        </Suspense>
+      <Topbar showTopBarScrolling={showTopBarScrolling} toggleMenu={toggleMenu} />
+      <Suspense fallback={<div style={{color: 'red'}}>Pippo...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

@@ -4,7 +4,6 @@
     background-color: var(--app-third-color);
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
 }
 
 .container-paralax-effect{
