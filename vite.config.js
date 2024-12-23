@@ -26,7 +26,7 @@ export default defineConfig({
       },
     },
   },
-  base: '/Le_Polle/',
+  base: '/Le_Polle',
   server: {
     port: 3000,
     historyApiFallback: true,
