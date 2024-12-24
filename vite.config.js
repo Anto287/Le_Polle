@@ -14,6 +14,7 @@ export default defineConfig({
       '@translation': path.resolve(__dirname, 'public/locales'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
     },
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   build: {
     outDir: 'dist',
