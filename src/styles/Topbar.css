@@ -17,6 +17,7 @@
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     border-bottom: 1px solid rgba(255, 255, 255);
+    will-change: top;
 }
 
 .topbar-mobile.hidden {
@@ -73,6 +74,7 @@
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     border-bottom: 1px solid rgba(255, 255, 255);
+    will-change: top;
 }
 
 .topbar-tablet.hidden {
@@ -198,16 +200,16 @@
     align-items: center;
     justify-content: center;
     padding: 1% 4% 0% 4%;
-    transition: top 1s;
     z-index: 99;
+    transition: top 1s;
 }
 
-.topbar-pc.hidden {
+.topbar-pc.hidden-top-bar {
     top: -100%;
     transition: top 1s;
 }
 
-.topbar-pc.visible {
+.topbar-pc.visible-top-bar {
     top: 0;
 }
 

@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
-import { MyDataProvider } from '@components/ScrollData';
+import { ScrollProvider } from '@components/ScrollData';
+import LoadingSpinner from '@components/LoadingSpinner';
 
 import myIcon from '@images/img_topbar/icon.webp';
 import '@styles/index.css';
@@ -14,10 +15,10 @@ const Index = () => {
   return (
     <React.StrictMode>
       <HashRouter>
-        <Suspense fallback={<div className="loading-screen">Loading...</div>}>
-          <MyDataProvider>
+        <Suspense fallback={<LoadingSpinner />}>
+          <ScrollProvider>
             <App />
-          </MyDataProvider>
+          </ScrollProvider>
         </Suspense>
       </HashRouter>
     </React.StrictMode>

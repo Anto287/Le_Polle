@@ -1,8 +1,11 @@
-import React, { Suspense, useState, lazy, useEffect } from 'react';
+import React, { Suspense, useState, lazy, useEffect, useRef } from 'react';
 import { Routes, Route, useLocation, Outlet } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import PageWrapper from '@components/PageWrapper';
 import Topbar from '@components/Topbar';
+import LoadingSpinner from '@components/LoadingSpinner';
+import { useScrollData } from '@components/ScrollData';
+import '@styles/App.css';
 
 const Home = lazy(() => import("@pages/Home"));
 const About = lazy(() => import("@pages/About"));
@@ -45,8 +48,35 @@ const App = () => {
 export default App;
 
 const Layout = ({animationEnd}) => {
+  const { setData } = useScrollData();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showTopBarScrolling, setShowTopBarScrolling] = useState(false);
+  const lastScrollTop = useRef(0);
+  const scrollContainerRef = useRef(null);
+
+  const handleScroll = () => {
+    const scrollTop = scrollContainerRef.current.scrollTop;
+    setData(scrollTop);
+
+    if (scrollTop > lastScrollTop.current) {
+      setShowTopBarScrolling(false);
+    } else if (scrollTop < lastScrollTop.current) {
+      setShowTopBarScrolling(true);
+    }
+    lastScrollTop.current = scrollTop;
+  };
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     setShowTopBarScrolling(animationEnd);
@@ -55,11 +85,11 @@ const Layout = ({animationEnd}) => {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <>
+    <div className="container-web" ref={scrollContainerRef}>
       <Topbar showTopBarScrolling={showTopBarScrolling} toggleMenu={toggleMenu} />
-      <Suspense fallback={<div style={{color: 'red'}}>Pippo...</div>}>
+      <Suspense fallback={<LoadingSpinner />}>
         <Outlet />
       </Suspense>
-    </>
+    </div>
   );
 };

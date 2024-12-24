@@ -56,7 +56,7 @@ const Topbar = ({ showTopBarScrolling, toggleMenu }) => {
   return (
     <nav>
       {breakpoint === 0 && 
-        <div className={`topbar-mobile ${showTopBarScrolling ? "visible" : "hidden"}`}>
+        <div className={`topbar-mobile ${showTopBarScrolling ? "visible-top-bar" : "hidden-top-bar"}`}>
           <div className='topbar-content-mobile'>
             <div className='container-logo-mobile'>
               <ImgLoader 
@@ -86,7 +86,7 @@ const Topbar = ({ showTopBarScrolling, toggleMenu }) => {
       }
 
       {breakpoint === 1 && 
-        <div className={`topbar-tablet ${showTopBarScrolling ? "visible" : "hidden"}`}>
+        <div className={`topbar-tablet ${showTopBarScrolling ? "visible-top-bar" : "hidden-top-bar"}`}>
           <div className='topbar-content-tablet'>
             <div className='container-logo-tablet'>
               <ImgLoader 
@@ -233,7 +233,7 @@ const Topbar = ({ showTopBarScrolling, toggleMenu }) => {
       }
 
       {(breakpoint === 2 || breakpoint === 3) &&
-        <div className={`topbar-pc ${showTopBarScrolling ? "visible" : "hidden"}`}>
+        <div className={`topbar-pc ${showTopBarScrolling ? "visible-top-bar" : "hidden-top-bar"}`}>
           <div className='topbar-content'>
             <div className='container-logo'>
               <ImgLoader 

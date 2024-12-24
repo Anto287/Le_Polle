@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useWindowSizeHook } from '@hooks/useWindowSizeHook';
-import { useMyData } from '@components/ScrollData';
+import { useScrollData } from '@components/ScrollData';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,7 +22,7 @@ gsap.registerPlugin(useGSAP);
 
 const DescriptionHome = () => {
   const { t } = useTranslation();
-  const { data: scrollPosition } = useMyData();
+  const { data: scrollY }  = useScrollData();
   const breakpoint = useWindowSizeHook([600, 1200, 2000]);
 
   const containerParagraphRef = useRef(null);
@@ -95,12 +95,12 @@ const DescriptionHome = () => {
 
   useEffect(() => {
     animateOnScroll();
-    console.log(scrollPosition);
+
     return () => {
       gsap.killTweensOf([containerParagraphRef.current, containerCarouselRef.current]);
       cardsRef.current.forEach((card) => gsap.killTweensOf(card));
     };
-  }, [scrollPosition]);
+  }, [scrollY]);
 
   const pagination = {
     clickable: true,

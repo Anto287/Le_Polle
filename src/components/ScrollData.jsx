@@ -1,17 +1,17 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const MyDataContext = createContext();
+const ScrollContext = createContext();
 
-export const MyDataProvider = ({ children }) => {
+export const ScrollProvider = ({ children }) => {
     const [data, setData] = useState(null);
-
+    
     return (
-        <MyDataContext.Provider value={{ data, setData }}>
+        <ScrollContext.Provider value={{data, setData}}>
             {children}
-        </MyDataContext.Provider>
+        </ScrollContext.Provider>
     );
 };
 
-export const useMyData = () => {
-    return useContext(MyDataContext);
+export const useScrollData = () => {
+    return useContext(ScrollContext);
 };
