@@ -24,6 +24,9 @@ export default defineConfig({
         assetFileNames: 'assets/[name].[hash][extname]',
         chunkFileNames: 'js/[name].[hash].js',
         entryFileNames: 'js/[name].[hash].js',
+        globals: {
+          react: 'React'
+        }
       },
     },
   },
