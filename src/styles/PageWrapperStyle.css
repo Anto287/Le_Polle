@@ -1,0 +1,11 @@
+.wrapped-page{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.wrapped-page::-webkit-scrollbar {
+    width: 0px;
+}
