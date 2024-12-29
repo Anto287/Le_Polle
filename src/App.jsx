@@ -25,11 +25,11 @@ const App = () => {
         <Route path="/" element={<Layout animationEnd={animationEnd}/>}>
           <Route 
             index 
-            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home animationEnd={animationEnd}/></PageWrapper>} 
+            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home/></PageWrapper>} 
           />
           <Route
             path="home"
-            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home animationEnd={animationEnd}/></PageWrapper>}
+            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home/></PageWrapper>}
           />
           <Route
             path="about"

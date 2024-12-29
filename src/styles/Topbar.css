@@ -20,12 +20,12 @@
     will-change: top;
 }
 
-.topbar-mobile.hidden {
+.topbar-mobile.hidden-top-bar {
     top: -100%;
     transition: top 1s;
 }
 
-.topbar-mobile.visible {
+.topbar-mobile.visible-top-bar {
     top: 0;
 }
 
@@ -77,12 +77,12 @@
     will-change: top;
 }
 
-.topbar-tablet.hidden {
+.topbar-tablet.hidden-top-bar {
     top: -100%;
     transition: top 1s;
 }
 
-.topbar-tablet.visible {
+.topbar-tablet.visible-top-bar {
     top: 0;
 }
 

@@ -12,9 +12,6 @@ const PageWrapper = ({ children, onAnimationComplete }) => {
   const targetScroll = useRef(0);
   const isScrolling = useRef(false);
 
-  const touchStartY = useRef(0);
-  const touchDeltaY = useRef(0);
-
   const smoothScroll = () => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
@@ -48,28 +45,11 @@ const PageWrapper = ({ children, onAnimationComplete }) => {
     }
   };
 
-  const handleTouchStart = (event) => {
-    touchStartY.current = event.touches[0].clientY;
-  };
+  const handleScroll = () => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
 
-  const handleTouchMove = (event) => {
-    event.preventDefault();
-
-    const touchY = event.touches[0].clientY;
-    touchDeltaY.current = touchStartY.current - touchY;
-
-    targetScroll.current += touchDeltaY.current * scrollSpeed + 0.2;
-    targetScroll.current = Math.max(
-      0,
-      Math.min(scrollContainerRef.current.scrollHeight, targetScroll.current)
-    );
-
-    touchStartY.current = touchY;
-
-    if (!isScrolling.current) {
-      isScrolling.current = true;
-      requestAnimationFrame(smoothScroll);
-    }
+    setData(scrollContainer.scrollTop);
   };
 
   useEffect(() => {
@@ -77,19 +57,13 @@ const PageWrapper = ({ children, onAnimationComplete }) => {
 
     if (scrollContainer) {
       scrollContainer.addEventListener('wheel', handleWheel, { passive: false });
-      scrollContainer.addEventListener('touchstart', handleTouchStart, {
-        passive: true,
-      });
-      scrollContainer.addEventListener('touchmove', handleTouchMove, {
-        passive: false,
-      });
+      scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
     }
 
     return () => {
       if (scrollContainer) {
         scrollContainer.removeEventListener('wheel', handleWheel);
-        scrollContainer.removeEventListener('touchstart', handleTouchStart);
-        scrollContainer.removeEventListener('touchmove', handleTouchMove);
+        scrollContainer.removeEventListener('scroll', handleScroll);
       }
     };
   }, []);
