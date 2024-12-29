@@ -156,6 +156,7 @@ const WhoAreHome = () => {
 
   const titleRef = useRef(null);
   const swiperRef = useRef(null);
+  const swiperTextRef = useRef(null);
 
   const animateOnScroll = () => {
     const viewportHeight = window.innerHeight;
@@ -180,6 +181,18 @@ const WhoAreHome = () => {
         ease: "power4.out",
         force3D: true,
       });
+    }
+
+    if (swiperTextRef.current) {
+        const swiperTextTop = swiperTextRef.current.getBoundingClientRect().top;
+    
+        gsap.to(swiperTextRef.current, {
+            opacity: swiperTextTop < viewportHeight * 0.8 ? 1 : 0,
+            x: swiperTextTop < viewportHeight * 0.8 ? 0 : swiperTextTop > viewportHeight * 0.8 ? -100 : 100,
+            duration: 1.2,
+            ease: "power4.out",
+            force3D: true,
+        });
     }
   };
 
@@ -235,7 +248,6 @@ const WhoAreHome = () => {
                     styleImg={{
                       objectFit: "cover",
                     }}
-                    loading="lazy"
                   />
                 </SwiperSlide>
               ))}
@@ -250,47 +262,49 @@ const WhoAreHome = () => {
             <h1>{t("WHO_ARE")}</h1>
           </div>
 
-          <div className="container-swiper-home-tablet" ref={swiperRef}>
-            <Swiper
-              modules={[Autoplay, EffectFade]}
-              spaceBetween={0}
-              slidesPerView={1}
-              effect={"fade"}
-              loop={true}
-              allowTouchMove={false}
-              grabCursor={false}
-              speed={2000}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-            >
-              <div className="container-who-are-tablet">
-                <div className="container-text-who-are-tablet">
-                  <b>{t("WHO_ARE_TITLE")}</b>
-                  {t("WHO_ARE_LONG_DESC")}
-                </div>
+          <div className="container-swiper-home-tablet">
+            <div className="container-who-are-tablet" ref={swiperTextRef}>
+              <div className="container-text-who-are-tablet">
+                <b>{t("WHO_ARE_TITLE")}</b>
+                {t("WHO_ARE_LONG_DESC")}
               </div>
-              {listImg.map((el, index) => (
-                <SwiperSlide key={index}>
-                  <ImgLoader
-                    src={el.tablet}
-                    styleImgLoader={{
-                      width: "100%",
-                      height: "50vh",
-                    }}
-                    style={{
-                      width: "100%",
-                      height: "50vh",
-                    }}
-                    styleImg={{
-                      objectFit: "cover",
-                    }}
-                    loading="lazy"
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            </div>
+
+            <div className="container-swiper-tablet" ref={swiperRef}>
+              <Swiper
+                modules={[Autoplay, EffectFade]}
+                spaceBetween={0}
+                slidesPerView={1}
+                effect={"fade"}
+                loop={true}
+                allowTouchMove={false}
+                grabCursor={false}
+                speed={2000}
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                }}
+              >
+                {listImg.map((el, index) => (
+                  <SwiperSlide key={index}>
+                    <ImgLoader
+                      src={el.tablet}
+                      styleImgLoader={{
+                        width: "100%",
+                        height: "50vh",
+                      }}
+                      style={{
+                        width: "100%",
+                        height: "50vh",
+                      }}
+                      styleImg={{
+                        objectFit: "cover",
+                      }}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
         </div>
       )}
