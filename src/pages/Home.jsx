@@ -1,8 +1,7 @@
 import React, { lazy } from 'react';
 import ParalaxHome from '@components/ParalaxHome';
-
-const WhoAreHome = lazy(() => import('@components/WhoAreHome'));
-const DescriptionHome = lazy(() => import('@components/DescriptionHome'));
+import WhoAreHome from '@components/WhoAreHome';
+import DescriptionHome from '@components/DescriptionHome';
 
 import '@styles/HomeStyle.css';
 
