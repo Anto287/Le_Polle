@@ -45,7 +45,7 @@ import frontLarge from '@images/img_paralax_home/large/front.webp';
 
 gsap.registerPlugin(useGSAP);
 
-const ParalaxHome = memo(() => {
+const ParalaxHome = memo(({animationTitleParalax}) => {
   const { t } = useTranslation();
   const breakpoint = useWindowSizeHook([600, 1200, 2000]);
   const [loadedImages, setLoadedImages] = useState(0);
@@ -106,14 +106,14 @@ const ParalaxHome = memo(() => {
   ];
 
   useEffect(() => {
-    if (loadedImages >= imageSources.length || errorPageLoaded) {
+    if ((loadedImages >= imageSources.length || errorPageLoaded) && animationTitleParalax) {
       gsap.fromTo(
         titlesRef.current,
         { y: 200, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out', delay: 1.2 }
       );
     }
-  }, [loadedImages, errorPageLoaded]);
+  }, [loadedImages, errorPageLoaded, animationTitleParalax]);
 
   useEffect(() => {
     const handleDeviceOrientation = (event) => {

@@ -19,26 +19,51 @@ const App = () => {
     setAnimationEnd(true);
   };
 
+  const handleAnimationStart = () => {
+    setAnimationEnd(false);
+  };
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Layout animationEnd={animationEnd}/>}>
-          <Route 
-            index 
-            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home/></PageWrapper>} 
+        <Route path="/" element={<Layout animationEnd={animationEnd} />}>
+          <Route
+            index
+            element={
+              <PageWrapper
+                onAnimationComplete={handleAnimationComplete}
+                onAnimationStart={handleAnimationStart}
+              >
+                <Home animationEnd={animationEnd}/>
+              </PageWrapper>
+            }
           />
           <Route
             path="home"
-            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><Home/></PageWrapper>}
+            element={
+              <PageWrapper
+                onAnimationComplete={handleAnimationComplete}
+                onAnimationStart={handleAnimationStart}
+              >
+                <Home animationEnd={animationEnd}/>
+              </PageWrapper>
+            }
           />
           <Route
             path="about"
-            element={<PageWrapper onAnimationComplete={handleAnimationComplete}><About/></PageWrapper>}
+            element={
+              <PageWrapper
+                onAnimationComplete={handleAnimationComplete}
+                onAnimationStart={handleAnimationStart}
+              >
+                <About />
+              </PageWrapper>
+            }
           />
         </Route>
 
-        <Route path="*" element={<Layout/>}>
-          <Route path="*" element={<NoPage/>} />
+        <Route path="*" element={<Layout animationEnd={false} />}>
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </AnimatePresence>
@@ -47,7 +72,9 @@ const App = () => {
 
 export default App;
 
-const Layout = ({animationEnd}) => {
+// ------------------- COMPONENTE LAYOUT -------------------
+
+const Layout = ({ animationEnd }) => {
   const { data: scrollY } = useScrollData();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showTopBarScrolling, setShowTopBarScrolling] = useState(false);

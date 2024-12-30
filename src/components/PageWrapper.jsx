@@ -4,7 +4,7 @@ import { useWindowSize } from '@hooks/useWindowSize';
 import { useScrollData } from '@components/ScrollData';
 import '@styles/PageWrapperStyle.css';
 
-const PageWrapper = ({ children, onAnimationComplete }) => {
+const PageWrapper = ({ children, onAnimationComplete, onAnimationStart }) => {
   const { width } = useWindowSize();
   const { setData } = useScrollData();
   const scrollContainerRef = useRef(null);
@@ -93,6 +93,7 @@ const PageWrapper = ({ children, onAnimationComplete }) => {
         background: 'white',
         zIndex: 2,
       }}
+      onAnimationStart={onAnimationStart}
       onAnimationComplete={onAnimationComplete}
     >
       <div
