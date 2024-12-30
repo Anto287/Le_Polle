@@ -129,7 +129,137 @@
 }
 
 .container-text-who-are-tablet > b {
-    font-family: "Lilita One", serif;
-    font-size: clamp(18px, 2.2vw, 30px);
-    font-weight: 200;
+  font-family: "Lilita One", serif;
+  font-size: clamp(18px, 2.2vw, 30px);
+  font-weight: 200;
+}
+
+.container-slider-home-pc{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5vh;
+  margin-top: 6vh;
+  color: var(--app-color-black);
+}
+
+.title-who-are-pc{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(10px, 3.5vw, 24px);
+}
+
+.container-swiper-home-pc{
+  position: relative;
+  width: 100vw;
+  padding: 5vh 5vw 0 5vw;
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  align-items: start;
+}
+
+.container-who-are-pc{
+  width: 55vw;
+}
+
+.container-text-who-are-pc {
+  height: 60vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 1vh;
+  flex-direction: column;
+  padding-right: 10vw;
+  color: var(--app-color-black);
+  font-family: "Lato", serif;
+  font-weight: 600;
+  font-size: clamp(14px, 1.4vw, 25px);
+}
+
+.container-text-who-are-pc > b {
+  font-family: "Lilita One", serif;
+  font-size: clamp(18px, 2.2vw, 30px);
+  font-weight: 200;
+}
+
+.container-swiper-pc{
+  position: relative;
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10vw;
+}
+
+.container-slider-home-large{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5vh;
+  margin-top: 6vh;
+  color: var(--app-color-black);
+}
+
+.title-who-are-large{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(20px, 3.5vw, 50px);
+}
+
+.container-swiper-home-large{
+  position: relative;
+  width: 100vw;
+  padding: 5vh 5vw 0 5vw;
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  align-items: start;
+}
+
+.container-who-are-large{
+  width: 60vw;
+}
+
+.container-text-who-are-large {
+  height: 50vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 1vh;
+  flex-direction: column;
+  padding-right: 20vw;
+  color: var(--app-color-black);
+  font-family: "Lato", serif;
+  font-weight: 600;
+  font-size: clamp(25px, 2.5vw, 38px)
+}
+
+.container-text-who-are-large > b {
+  font-family: "Lilita One", serif;
+  font-size: clamp(20px, 3.5vw, 50px);
+  font-weight: 200;
+}
+
+.container-swiper-large{
+  position: relative;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10vw;
 }
