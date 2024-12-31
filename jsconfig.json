@@ -9,6 +9,7 @@
         "@images/*": ["src/assets/images/*"],
         "@translation/*": ["public/locales/*"],
         "@hooks/*": ["src/hooks/*"],
+        "@fonts/*": ["src/assets/fonts/*"]
       }
     }
   }
