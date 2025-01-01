@@ -1,0 +1,69 @@
+.hover-effect-outer-div {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  color: var(--app-color-black);
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.hover-effect-outer-div:hover .hover-effect-underline {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+.hover-effect-outer-div:hover .hover-effect-inner-span span {
+  transform: translate3d(-200%, 0, 0);
+}
+
+.hover-effect-outer-div:hover .hover-effect-inner-span::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.hover-effect-icon {
+  transition: color 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.hover-effect-outer-div:hover .hover-effect-icon {
+  color: var(--app-color-white);
+}
+
+.hover-effect-inner-span {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-inner-span span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  white-space: nowrap;
+}
+
+.hover-effect-inner-span::after {
+  content: attr(data-replace);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3d(200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: var(--app-color-white);
+  white-space: nowrap;
+}
+
+.hover-effect-underline {
+  content: "";
+  position: absolute;
+  background-color: var(--app-color-white);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}

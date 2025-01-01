@@ -3,6 +3,7 @@ import ParalaxHome from '@components/ParalaxHome';
 
 const WhoAreHome = lazy(() => import('@components/WhoAreHome'));
 const DescriptionHome = lazy(() => import('@components/DescriptionHome'));
+const Footer = lazy(() => import('@components/Footer'));
 
 import '@styles/HomeStyle.css';
 
@@ -20,6 +21,18 @@ const Home = ({ animationEnd }) => {
       </div>
       <WhoAreHome />
       <DescriptionHome />
+      <div>
+       {/* Un divisore dal colore ad un altro in un modo carino */}
+  
+        {/* I nostri menu */}
+        
+        {/* Un altro divisore che mi ritorni al colore di sopra */}
+        
+        {/* Le prenotazioni */}
+
+        {/* La posizione con l'effetto che compare dopo un immagine grande messa in modo carino*/}
+      </div>
+      <Footer />
     </div>
   );
 };

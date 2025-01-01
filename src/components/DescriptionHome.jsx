@@ -136,13 +136,6 @@ const DescriptionHome = () => {
       cardsRef.current.forEach((card) => gsap.killTweensOf(card));
     };
   }, [scrollY]);
-
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span className="' + className + ' responsive-pagination-swiper"></span>';
-    },
-  };
   
   return (
     <>
@@ -246,7 +239,9 @@ const DescriptionHome = () => {
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={50}
               slidesPerView={1}
-              pagination={pagination}
+              pagination={{
+                clickable: true,
+              }}
               navigation={{
                 nextEl: '.custom-arrow-right',
                 prevEl: '.custom-arrow-left',
@@ -298,7 +293,9 @@ const DescriptionHome = () => {
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={50}
               slidesPerView={1}
-              pagination={pagination}
+              pagination={{
+                clickable: true,
+              }}
               navigation={{
                 nextEl: '.custom-arrow-right',
                 prevEl: '.custom-arrow-left',

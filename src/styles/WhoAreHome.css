@@ -28,6 +28,7 @@
 .container-swiper-home-mobile {
   position: relative;
   width: 100%;
+  max-width: 400px;
   will-change: transform, opacity;
 }
 

@@ -7,7 +7,7 @@
         "@styles/*": ["src/styles/*"],
         "@assets/*": ["src/assets/*"],
         "@images/*": ["src/assets/images/*"],
-        "@translation/*": ["public/locales/*"],
+        "@translation/*": ["src/locales/*"],
         "@hooks/*": ["src/hooks/*"],
         "@fonts/*": ["src/assets/fonts/*"]
       }
