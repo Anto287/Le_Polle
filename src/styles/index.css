@@ -142,3 +142,15 @@
   font-weight: 500;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'fa-fishing';
+  src: url('@svg/icomoon.woff') format('woff2');
+  font-style: normal;
+}
+
+.fa-fishing::before {
+  font-family: 'fa-fishing';
+  font-style: normal;
+  content: '\e900';
+}

@@ -1,0 +1,35 @@
+.expandable-container {
+  width: 100%;
+  max-width: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.expandable-header {
+  color: var(--app-color-black);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.expandable-header i {
+  font-size: 1cap;
+}
+
+.expandable-content {
+  overflow: hidden;
+  height: 0;
+}
+
+.expandable-item {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--app-color-white);
+}
+
+.expandable-item:last-child {
+  border-bottom: none;
+}

@@ -15,6 +15,7 @@ export default defineConfig({
       '@translation': path.resolve(__dirname, 'src/locales'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@fonts': path.resolve(__dirname, 'src/assets/fonts'),
+      '@svg': path.resolve(__dirname, 'src/assets/svg'),
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },

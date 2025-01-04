@@ -9,7 +9,8 @@
         "@images/*": ["src/assets/images/*"],
         "@translation/*": ["src/locales/*"],
         "@hooks/*": ["src/hooks/*"],
-        "@fonts/*": ["src/assets/fonts/*"]
+        "@fonts/*": ["src/assets/fonts/*"],
+        "@svg/*": ["src/assets/svg/*"]
       }
     }
   }

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import "@styles/HoverEffect.css";
 
-const HoverEffect = ({
+const HoverEffect = memo(({
   dataReplace = "",
   iconClass = "",
   bounceClass = "",
@@ -47,6 +47,6 @@ const HoverEffect = ({
       <div className="hover-effect-underline"></div>
     </div>
   );
-};
+});
 
 export default HoverEffect;
