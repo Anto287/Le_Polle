@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useWindowSizeHook } from "@hooks/useWindowSizeHook";
 import HoverEffect from "@components/HoverEffect";
 import ImgLoader from "@components/ImgLoader";
@@ -13,6 +13,13 @@ const Footer = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const breakpoint = useWindowSizeHook([600, 1200, 2000]);
+
+  const styleRow = {
+    fontSize: "clamp(14px, 2.8vw, 20px)",
+    height: "clamp(30px, 2.8vw, 34px)",
+    fontFamily: "Lilita One",
+    fontWeight: "200",
+  };
 
   const openEmail = () => {
     window.location.href = "mailto:info@lepollesulcimone.com";
@@ -38,8 +45,8 @@ const Footer = () => {
   };
 
   const navigatePage = (selected) => {
-    navigate(`/${selected}`, { replace: true }); 
-  }
+    navigate(`/${selected}`, { replace: true });
+  };
 
   const itemsSocial = [
     <HoverEffect
@@ -47,12 +54,7 @@ const Footer = () => {
       iconClass="fa-brands fa-square-facebook"
       dataReplace="lagolepolleriolunato"
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => openFacebook("lagolepolleriolunato")}
     />,
 
@@ -61,12 +63,7 @@ const Footer = () => {
       iconClass="fa-brands fa-square-instagram"
       dataReplace="lagolepolle"
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => openInstagram("lagolepolle")}
     />,
 
@@ -75,12 +72,7 @@ const Footer = () => {
       iconClass="fa-brands fa-square-facebook"
       dataReplace="latanadellupolepolleriolunato"
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => openFacebook("latanadellupolepolleriolunato")}
     />,
 
@@ -89,116 +81,76 @@ const Footer = () => {
       iconClass="fa-brands fa-square-instagram"
       dataReplace="latanadellupolepolle"
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => openInstagram("latanadellupolepolle")}
     />,
   ];
 
   const itemsPage = [
     <HoverEffect
-      text={t('HOME')}
+      text={t("HOME")}
       iconClass="fa-solid fa-house"
-      dataReplace={t('HOME')}
+      dataReplace={t("HOME")}
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => navigatePage("home")}
     />,
 
     <HoverEffect
-      text={t('TANA_DEL_LUPO')}
+      text={t("TANA_DEL_LUPO")}
       iconClass="fa-solid fa-utensils"
-      dataReplace={t('TANA_DEL_LUPO')}
+      dataReplace={t("TANA_DEL_LUPO")}
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => navigatePage("tanaDelLupo")}
     />,
 
     <HoverEffect
-      text={t('AREA_CAMPING')}
+      text={t("AREA_CAMPING")}
       iconClass="fa-solid fa-campground"
-      dataReplace={t('AREA_CAMPING')}
+      dataReplace={t("AREA_CAMPING")}
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => navigatePage("areaCamping")}
     />,
 
     <HoverEffect
-      text={t('AREA_CAMPER')}
+      text={t("AREA_CAMPER")}
       iconClass="fa-solid fa-caravan"
-      dataReplace={t('AREA_CAMPER')}
+      dataReplace={t("AREA_CAMPER")}
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => navigatePage("areaCamper")}
     />,
 
     <HoverEffect
-      text={t('LAGHETTO')}
+      text={t("LAGHETTO")}
       iconClass="fa-fishing"
-      dataReplace={t('LAGHETTO')}
+      dataReplace={t("LAGHETTO")}
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => navigatePage("laghetto")}
-    />
+    />,
   ];
 
   const itemsCookies = [
     <HoverEffect
-      text={t('COOKIE')}
+      text={t("COOKIE")}
       iconClass="fa-solid fa-cookie"
-      dataReplace={t('COOKIE')}
+      dataReplace={t("COOKIE")}
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => navigatePage("cookie")}
     />,
 
     <HoverEffect
-      text={t('PRIVACY_POLICY')}
+      text={t("PRIVACY_POLICY")}
       iconClass="fa-solid fa-shield-halved"
-      dataReplace={t('PRIVACY_POLICY')}
+      dataReplace={t("PRIVACY_POLICY")}
       bounceClass="fa-bounce"
-      style={{
-        fontSize: "clamp(14px, 2.8vw, 20px)",
-        height: "clamp(30px, 2.8vw, 34px)",
-        fontFamily: "Lilita One",
-        fontWeight: "200",
-      }}
+      style={styleRow}
       onClickHandler={() => navigatePage("privacy-policy")}
-    />
+    />,
   ];
 
   return (
@@ -271,51 +223,148 @@ const Footer = () => {
             </div>
           </div>
           <div className="container-page-footer-mobile">
-            <ExpandableList 
-              items={itemsPage} 
-              textHead={t('EXPLORE')} 
-              iconHeadOpen="fa-solid fa-chevron-down" 
-              iconHeadClose="fa-solid fa-chevron-up" 
+            <ExpandableList
+              items={itemsPage}
+              textHead={t("EXPLORE")}
+              iconHeadOpen="fa-solid fa-chevron-down"
+              iconHeadClose="fa-solid fa-chevron-up"
               classHead="container-socialmedia-footer-thead-mobile"
             />
           </div>
           <div className="container-socialmedia-footer-mobile">
-            <ExpandableList 
-              items={itemsSocial} 
-              textHead={t('SOCIAL')} 
-              iconHeadOpen="fa-solid fa-chevron-down" 
-              iconHeadClose="fa-solid fa-chevron-up" 
+            <ExpandableList
+              items={itemsSocial}
+              textHead={t("SOCIAL")}
+              iconHeadOpen="fa-solid fa-chevron-down"
+              iconHeadClose="fa-solid fa-chevron-up"
               classHead="container-socialmedia-footer-thead-mobile"
             />
           </div>
           <div className="container-socialmedia-footer-mobile">
-            <ExpandableList 
-              items={itemsCookies} 
-              textHead={t('COOKIES_AND_PRIVACY')} 
-              iconHeadOpen="fa-solid fa-chevron-down" 
-              iconHeadClose="fa-solid fa-chevron-up" 
+            <ExpandableList
+              items={itemsCookies}
+              textHead={t("COOKIES_AND_PRIVACY")}
+              iconHeadOpen="fa-solid fa-chevron-down"
+              iconHeadClose="fa-solid fa-chevron-up"
               classHead="container-socialmedia-footer-thead-mobile"
             />
           </div>
           <div className="container-reservation-footer-mobile">
             <div className="container-reservation-footer-text-mobile">
-              <p>{t('TEXT_FOOTER')}</p>
+              <p>{t("TEXT_FOOTER")}</p>
             </div>
-            
+
             <div className="container-reservation-footer-copyright-mobile">
               <i class="fa-regular fa-copyright"></i>
-              <p>
-                {new Date().getFullYear()} {t('COPYRIGHT_TEXT')}
-              </p>
-            </div> 
+              {new Date().getFullYear()} {t("COPYRIGHT_TEXT")}
+            </div>
           </div>
         </footer>
       )}
 
       {breakpoint === 1 && (
-        <footer className="footer">
-          <div></div>
-          <div></div>
+        <footer className="footer-tablet">
+          <div className="container-info-footer-tablet">
+            <div className="container-data-footer-tablet">
+              <div className="container-img-logo-footer-tablet">
+                <ImgLoader
+                  src={myIcon}
+                  style={{
+                    minWidth: "60px",
+                    minHeight: "60px",
+                    width: "10vw",
+                    height: "10vw",
+                  }}
+                  styleImg={{ width: "auto", height: "100%" }}
+                  alt={t("THE_POLLE")}
+                />
+              </div>
+              
+              <div className="container-contact-info-footer-tablet">
+                <HoverEffect
+                  text="info@lepollesulcimone.com"
+                  iconClass="fa-solid fa-envelope"
+                  dataReplace="info@lepollesulcimone.com"
+                  bounceClass="fa-bounce"
+                  style={{
+                    fontSize: "clamp(14px, 2.8vw, 20px)",
+                    height: "clamp(30px, 2.8vw, 34px)",
+                    fontFamily: "Lilita One",
+                    fontWeight: "200",
+                  }}
+                  onClickHandler={openEmail}
+                />
+
+                <HoverEffect
+                  text="+39 339 756 8205"
+                  iconClass="fa-solid fa-phone"
+                  dataReplace="+39 339 756 8205"
+                  bounceClass="fa-bounce"
+                  style={{
+                    fontSize: "clamp(14px, 2.8vw, 20px)",
+                    height: "clamp(30px, 2.8vw, 34px)",
+                    fontFamily: "Lilita One",
+                    fontWeight: "200",
+                  }}
+                  onClickHandler={openPhone}
+                />
+
+                <HoverEffect
+                  text={t("THE_POLLE")}
+                  iconClass="fa-solid fa-location-dot"
+                  dataReplace={t("THE_POLLE")}
+                  bounceClass="fa-bounce"
+                  style={{
+                    fontSize: "clamp(14px, 2.8vw, 20px)",
+                    height: "clamp(30px, 2.8vw, 34px)",
+                    fontFamily: "Lilita One",
+                    fontWeight: "200",
+                  }}
+                  onClickHandler={openMaps}
+                />
+              </div>
+            </div>
+
+            <div className="container-page-footer-tablet">
+              <div className="container-socialmedia-footer-tablet">
+                <ExpandableList
+                  items={itemsPage}
+                  textHead={t("EXPLORE")}
+                  iconHeadOpen="fa-solid fa-chevron-down"
+                  iconHeadClose="fa-solid fa-chevron-up"
+                  classHead="container-socialmedia-footer-thead-tablet"
+                />
+              </div>
+              <div className="container-socialmedia-footer-tablet">
+                <ExpandableList
+                  items={itemsSocial}
+                  textHead={t("SOCIAL")}
+                  iconHeadOpen="fa-solid fa-chevron-down"
+                  iconHeadClose="fa-solid fa-chevron-up"
+                  classHead="container-socialmedia-footer-thead-tablet"
+                />
+              </div>
+              <div className="container-socialmedia-footer-tablet">
+                <ExpandableList
+                  items={itemsCookies}
+                  textHead={t("COOKIES_AND_PRIVACY")}
+                  iconHeadOpen="fa-solid fa-chevron-down"
+                  iconHeadClose="fa-solid fa-chevron-up"
+                  classHead="container-socialmedia-footer-thead-tablet"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="container-reservation-footer-tablet">
+            <div className="container-reservation-footer-text-tablet">
+              <p>{t("TEXT_FOOTER")}</p>
+            </div>
+
+            <div className="container-reservation-footer-copyright-tablet">
+              <i class="fa-regular fa-copyright"></i>
+              {new Date().getFullYear()} {t("COPYRIGHT_TEXT")}
+            </div>
+          </div>
         </footer>
       )}
 

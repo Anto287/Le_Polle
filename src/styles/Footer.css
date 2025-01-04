@@ -89,3 +89,106 @@
 .container-reservation-footer-copyright-mobile > i{
   font-size: 1.3cap;
 }
+
+.footer-tablet{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding: 0 3vw;
+  background-color: var(--app-light-color);
+  color: var(--app-color-black);
+}
+
+.container-info-footer-tablet{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--app-color-white);
+}
+
+.container-data-footer-tablet{
+  width: 55%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.container-img-logo-footer-tablet{
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.container-contact-info-footer-tablet{
+  min-width: 250px;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 1.5vh;
+  margin: 9.5vh 0 1vh 2vw;
+}
+
+.container-page-footer-tablet{
+  width: 45%;
+  padding-left: 3vw;
+  margin: 1.8vh 0;
+  border-left: 1px solid var(--app-color-white);
+}
+
+.container-socialmedia-footer-tablet{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1.8vh 3vw 1.5vh 3vw;
+  border-bottom: 1px solid var(--app-color-white);
+}
+
+.container-page-footer-tablet .container-socialmedia-footer-tablet:last-child{
+  border-bottom: 0px;
+}
+
+.container-socialmedia-footer-thead-tablet{
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-family: "Lora", serif;
+  font-weight: 700;
+}
+
+.container-reservation-footer-tablet{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5vh;
+  width: 100%;
+  padding: 3vh 3vw 1.5vh 3vw;
+}
+
+.container-reservation-footer-text-tablet{
+  text-align: center;
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-size: clamp(13px, 1.4vw, 18px);
+}
+
+.container-reservation-footer-copyright-tablet{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(5px, 1vw, 10px);
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: clamp(14px, 1.2vw, 18px);
+}
+
+.container-reservation-footer-copyright-tablet > i{
+  font-size: 1.3cap;
+}
