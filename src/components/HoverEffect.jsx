@@ -8,7 +8,8 @@ const HoverEffect = memo(({
   text = "",
   containerClass = "",
   style = {},
-  onClickHandler = () => {}
+  onClickHandler = () => {},
+  title
 }) => {
   const [isBouncing, setIsBouncing] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -39,6 +40,7 @@ const HoverEffect = memo(({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave} 
       onClick={handleClick}
+      title={title || text || ""}
     >
       <i className={`hover-effect-icon ${iconClass} ${isBouncing ? bounceClass : ""}`} />
       <div className="hover-effect-inner-span" data-replace={dataReplace}>

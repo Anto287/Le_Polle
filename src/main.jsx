@@ -4,7 +4,7 @@ import { HashRouter } from 'react-router-dom';
 import { ScrollProvider } from '@components/ScrollData';
 import LoadingSpinner from '@components/LoadingSpinner';
 
-import myIcon from '@images/img_topbar/icon.webp';
+import myIcon from '@images/favicon/favicon.webp';
 import '@styles/index.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './i18n';

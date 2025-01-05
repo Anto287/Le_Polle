@@ -9,6 +9,7 @@
   font-weight: 700;
   cursor: pointer;
   overflow: hidden;
+  user-select: none;
 }
 
 .hover-effect-outer-div:hover .hover-effect-underline {
@@ -53,6 +54,7 @@
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
   color: var(--app-color-white);
   white-space: nowrap;
+  user-select: none;
 }
 
 .hover-effect-underline {
