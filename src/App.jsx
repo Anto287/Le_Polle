@@ -34,7 +34,7 @@ const App = () => {
                 onAnimationComplete={handleAnimationComplete}
                 onAnimationStart={handleAnimationStart}
               >
-                <Home animationEnd={animationEnd}/>
+                <Home animationEnd={animationEnd} />
               </PageWrapper>
             }
           />
@@ -45,7 +45,7 @@ const App = () => {
                 onAnimationComplete={handleAnimationComplete}
                 onAnimationStart={handleAnimationStart}
               >
-                <Home animationEnd={animationEnd}/>
+                <Home animationEnd={animationEnd} />
               </PageWrapper>
             }
           />
@@ -77,8 +77,9 @@ export default App;
 const Layout = ({ animationEnd }) => {
   const { data: scrollY } = useScrollData();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showTopBarScrolling, setShowTopBarScrolling] = useState(false);
+  const [showTopBarScrolling, setShowTopBarScrolling] = useState(null);
   const lastScrollTop = useRef(0);
+  const location = useLocation();
 
   const handleScroll = (scrollTop) => {
     if (scrollTop > lastScrollTop.current) {
@@ -92,6 +93,14 @@ const Layout = ({ animationEnd }) => {
   useEffect(() => {
     setShowTopBarScrolling(animationEnd);
   }, [animationEnd]);
+
+  useEffect(() => {
+    if(animationEnd){
+      setShowTopBarScrolling(false);
+
+      setTimeout(() => setShowTopBarScrolling(true), 2000);
+    }
+  }, [location]);
 
   useEffect(() => {
     handleScroll(scrollY);

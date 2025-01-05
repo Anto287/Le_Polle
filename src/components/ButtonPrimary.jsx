@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '@styles/ButtonPrimary.css';
 
-const ButtonPrimary = ({ label, title, effectButton = true, icon, btnClass, classContainerText, width = 'auto' }) => {
+const ButtonPrimary = ({ label, title, effectButton = true, icon, btnClass, classContainerText, width = 'auto', onClickButton = () => {} }) => {
   const { t } = useTranslation();
   const [ripples, setRipples] = useState([]);
   const [hoverCircle, setHoverCircle] = useState(null);
@@ -23,6 +23,8 @@ const ButtonPrimary = ({ label, title, effectButton = true, icon, btnClass, clas
         prevRipples.filter((r) => r.id !== newRipple.id)
       );
     }, 600);
+
+    onClickButton(true);
   };
 
   const mouseEnter = (e) => {
